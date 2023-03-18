@@ -10,16 +10,47 @@ public class Car extends Vehicle {
     private int seats;
 
     public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+        super(name);
         //Hint: Car extends Vehicle
+        this.wheels = wheels;
+        this.doors = doors;
+        this.isManual = isManual;
+        this.type = type;
+        this.seats = seats;
+        this.gears = gears;
+        this.currentGear = 1;
+
+    }
+
+    public Car(String name,boolean isManual) {
+        super(name);
+        this.isManual = isManual;
     }
 
     public void changeGear(int newGear){
-
+        this.currentGear = newGear;
         System.out.println("changeGear method called - The gear is changed to: " + currentGear);
     }
 
     public void changeSpeed(int newSpeed, int newDirection){
-
+        move(newSpeed,newDirection);
         System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
+    }
+
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
+    public int get(){
+        return getCurrentSpeed();
+    }
+    public void set(int speed){
+        setCurrentSpeed(speed);
+    }
+//    public int getCurrentDirection(){
+//        return ;
+//    }
+
+    public boolean isManual() {
+        return isManual;
     }
 }
